@@ -1,267 +1,204 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunga Cinta Untuk Sayangku ❤️</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️</title>
 
-        body {
-            overflow: hidden;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            position: relative;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-            z-index: 10;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            animation: fadeInUp 2s ease-out;
-        }
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
 
-        .message {
-            font-size: 1.3rem;
-            color: #fff;
-            text-align: center;
-            max-width: 500px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            animation: fadeInUp 2s ease-out 0.5s both;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
+/* SECTION SCROLL */
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    padding: 40px 20px;
+}
 
-        .heart {
-            font-size: 3rem;
-            color: #ff6b9d;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
+.container {
+    text-align: center;
+}
 
-        /* Animasi Bunga */
-        .flower {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            animation: float 6s ease-in-out infinite;
-        }
+/* TEXT */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
 
-        .flower:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .flower:nth-child(2) { left: 20%; animation-delay: 1s; }
-        .flower:nth-child(3) { left: 30%; animation-delay: 2s; }
-        .flower:nth-child(4) { left: 40%; animation-delay: 3s; }
-        .flower:nth-child(5) { left: 50%; animation-delay: 4s; }
-        .flower:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .flower:nth-child(7) { left: 70%; animation-delay: 0.5s; }
-        .flower:nth-child(8) { left: 80%; animation-delay: 1.5s; }
-        .flower:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+.message {
+    font-size: 1.3rem;
+    color: #fff;
+    max-width: 500px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
 
-        .petal {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
-            border-radius: 50% 0 50% 0;
-            transform-origin: center;
-            box-shadow: 0 2px 5px rgba(255,105,180,0.5);
-        }
+.heart {
+    font-size: 3rem;
+    color: #ff6b9d;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s infinite;
+}
 
-        .petal:nth-child(1) { transform: rotate(0deg) translate(15px, -5px); }
-        .petal:nth-child(2) { transform: rotate(40deg) translate(15px, -5px); }
-        .petal:nth-child(3) { transform: rotate(80deg) translate(15px, -5px); }
-        .petal:nth-child(4) { transform: rotate(120deg) translate(15px, -5px); }
-        .petal:nth-child(5) { transform: rotate(160deg) translate(15px, -5px); }
+/* BACKGROUND FIXED */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
 
-        .stem {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 40px;
-            background: linear-gradient(to top, #228B22, #32CD32);
-            border-radius: 2px;
-        }
+/* BUNGA ASLI (DIKEMBALIKAN) */
+.flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: float 6s ease-in-out infinite;
+}
 
-        /* Animasi */
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(100vh) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            50% { 
-                transform: translateY(-20px) rotate(180deg) scale(1.2);
-            }
-        }
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+    border-radius: 50% 0 50% 0;
+    transform-origin: center;
+    box-shadow: 0 2px 5px rgba(255,105,180,0.5);
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.petal:nth-child(1) { transform: rotate(0deg) translate(15px, -5px); }
+.petal:nth-child(2) { transform: rotate(40deg) translate(15px, -5px); }
+.petal:nth-child(3) { transform: rotate(80deg) translate(15px, -5px); }
+.petal:nth-child(4) { transform: rotate(120deg) translate(15px, -5px); }
+.petal:nth-child(5) { transform: rotate(160deg) translate(15px, -5px); }
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.3); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.3); }
-            70% { transform: scale(1); }
-        }
+.stem {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to top, #228B22, #32CD32);
+    border-radius: 2px;
+}
 
-        /* Responsif */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .message { font-size: 1.1rem; padding: 0 20px; }
-            .flower { width: 50px; height: 50px; }
-            .petal { width: 16px; height: 16px; }
-        }
-    </style>
+/* ANIMASI ASLI */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    50% { 
+        transform: translateY(-20px) rotate(180deg) scale(1.2);
+    }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .message { font-size: 1.1rem; }
+}
+</style>
 </head>
-<body>
-    <!-- Bunga-bunga yang berterbangan -->
-    <div class="flower" id="flower1">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower2">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower3">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower4">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower5">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower6">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower7">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower8">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
-    <div class="flower" id="flower9">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="stem"></div>
-    </div>
 
+<body>
+
+<!-- BACKGROUND -->
+<div class="background" id="bg"></div>
+
+<!-- SECTION 1 -->
+<div class="section">
     <div class="container">
-        <h1>🌹 Untuk cella🌹</h1>
+        <h1>🌹 Untuk Cella 🌹</h1>
         <div class="heart">💖</div>
         <p class="message">
-            cepat sembuh yaa
-            <br>jaga kesehatannya, makan harus tepat waktu, jangan kebanyakan pikiran, jam tidur dijagaa 
-            <br><strong>aku sayang kamu 💕</strong>
+            aku cuma mau bilang<br><br>
+           aku suka sama kamu, itu udah jelaslah yakan
+          tapi aku juga sadar kita LDR, itu butuh komitmen dan aku juga gak tau kapan
+          kita bisa ketemu. tapi kalau mau lanjut,
+          aku pengen kita sama-sama serius. 
+          kamu siap gak kalau kita jadi pasangan? <br><br>
+          scroll ke bawah 
         </p>
     </div>
+</div>
 
-    <script>
-        // Membuat lebih banyak bunga secara random
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.className = 'flower';
-            flower.style.left = Math.random() * 100 + '%';
-            flower.style.animationDelay = Math.random() * 6 + 's';
-            flower.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            
-            flower.innerHTML = `
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="stem"></div>
-            `;
-            
-            document.body.appendChild(flower);
-            
-            setTimeout(() => {
-                flower.remove();
-            }, 8000);
-        }
+<!-- SECTION 2 -->
+<div class="section">
+    <div class="container">
+        <h1></h1>
+        <p class="message">
+            tapi, kalau belum siap atau gamau gapapa bilang aja yaa<br>
+            kmu punya hak untuk memilih dan menolak
+            aku menghargai apapun keputusan kamu..<br><br>
+            maaf ya aku ngomongnya disini, kalo di telpon atau chat biasa aku gakuat keburu salting duluan hehe
+            maaf juga kalo keliatan lebay hahaha <br><br>
 
-        // Membuat bunga baru setiap 500ms
-        setInterval(createFlower, 500);
+            ooh iya semoga cepat sembuh yaa 
+                jaga kesehatan, jangan terlalu banyak pikiran. semangat truss okee? <br><br>
+        </p>
+    </div>
+</div>
 
-        // Efek klik untuk bunga tambahan
-        document.addEventListener('click', function(e) {
-            for(let i = 0; i < 3; i++) {
-                setTimeout(() => createFlower(), i * 100);
-            }
-        });
-    </script>
+<script>
+function createFlower() {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.style.left = Math.random() * 100 + '%';
+    flower.style.animationDelay = Math.random() * 6 + 's';
+    flower.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    
+    flower.innerHTML = `
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="stem"></div>
+    `;
+    
+    document.getElementById('bg').appendChild(flower);
+    
+    setTimeout(() => {
+        flower.remove();
+    }, 8000);
+}
+
+// kecepatan asli kamu
+setInterval(createFlower, 500);
+</script>
+
 </body>
 </html>
